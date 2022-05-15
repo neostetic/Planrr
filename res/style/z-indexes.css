@@ -1,0 +1,23 @@
+.header {
+    z-index: 10;
+}
+
+.content {
+    z-index: 1;
+}
+
+.canvas-zoom {
+    z-index: 2;
+}
+
+.button {
+    z-index: 3;
+}
+
+.edit-menu {
+    z-index: 4;
+}
+
+#infoBox {
+    z-index: 10;
+}
