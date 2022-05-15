@@ -9,7 +9,7 @@
 #### Information
  - **Name:** Planrr
  - **Version:** 1.0.0
- - **Website:** https://example.com
+ - **Website:** https://neostetic.github.io/Planrr/
 #### Download Content
  - **License:** [LICENSE](https://github.com/neostetic/template/blob/main/LICENSE) ([download](https://github.com/neostetic/template/raw/main/LICENSE))
 #### Install
