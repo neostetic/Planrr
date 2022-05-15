@@ -216,3 +216,25 @@ button > svg {
 #settings > span:hover {
     outline: 1px solid black;
 }
+
+@media screen and (max-width: 600px) {
+    #import, #export {
+        font-size: 18px;
+    }
+
+    #import > textarea, #export > textarea {
+        resize: none;
+        width: auto;
+        height: auto;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    button > span {
+        display: none;
+    }
+
+    button {
+        font-size: 12px;
+    }
+}
