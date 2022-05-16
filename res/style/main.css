@@ -9,6 +9,25 @@ body {
     margin: 0;
 }
 
+.noselect, br, img, button {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+::-moz-selection {
+    color: #000000;
+    background: #7051ff;
+}
+
+::selection {
+    color: #000000;
+    background: #7051ff;
+}
+
 button {
     background: #7051ff;
     font-size: 16px;
@@ -28,6 +47,7 @@ button:hover {
 
 button > svg {
     height: 12px;
+    margin-right: 5px;
 }
 
 .header {
@@ -46,6 +66,11 @@ button > svg {
     font-size: 24px;
 }
 
+.header-left > a {
+    color: #7051ff;
+    text-decoration: none;
+}
+
 .header-right {
     float: right;
 }
@@ -53,7 +78,7 @@ button > svg {
 .content {
     position: relative;
     width: 100%;
-    height: calc(100vh - 88px);
+    height: calc(100vh - 86px);
     background: rgba(0,0,0,.05);
 }
 
@@ -104,6 +129,8 @@ button > svg {
 .textarea {
     min-width: 200px;
     min-height: 120px;
+    max-width: 1000px;
+    max-height: 1000px;
     position: relative;
     top: 7px;
     outline: none;
@@ -129,6 +156,15 @@ button > svg {
     position: absolute;
     top: 0;
     right: 0;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.button-menu-second {
+    position: absolute;
+    bottom: 0;
+    left: 0;
     margin: 10px;
     display: flex;
     flex-direction: column;
@@ -178,56 +214,124 @@ button > svg {
     position: absolute;
 }
 
-#import, #export {
-    font-size: 28px;
-}
-
-#import > span, #export > span {
-    font-size: 14px;
+.info-box > div > h2 {
     margin: 0;
 }
 
-#import > textarea, #export > textarea {
-    resize: none;
+.info-box > div > textarea {
     width: 400px;
-    height: 200px;
+    height: 20vh;
+    resize: none;
     padding: 10px;
-    font-size: 16px;
+    margin: 10px 0;
+    font-size: 14px;
 }
 
-#settings > b {
-    font-size: 28px;
+.changeBgs {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-#settings {
-    font-size: 18px;
-}
-
-#settings > span {
-    font-size: 16px;
+.changeBg {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    margin-right: 10px;
+    margin-top: 10px;
     cursor: pointer;
-    background: black;
-    color: white;
-    margin: 2px;
-    padding: 3px 10px;
+    border: 1px solid rgba(0,0,0,.6);
     transition: .2s;
 }
 
-#settings > span:hover {
-    outline: 1px solid black;
+.changeBg:hover {
+    transform: scale(1.05);
+}
+
+#textExport {
+    user-select: all;
+}
+
+.newCanvasInput {
+    margin: 5px 0 10px 0;
+    width: 100px;
+}
+
+#newfile {
+    width: 400px;
+}
+
+.move-svg {
+    position: relative;
+    top: -2px;
+    left: 5px;
+    width: 16px;
+}
+
+.move-svg-2 {
+    position: relative;
+    top: -4px;
+}
+
+#popup {
+    pointer-events: none;
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    background: white;
+    padding: 10px 16px;
+    font-weight: 800;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 0 30px rgba(0,0,0,.4);
+    transition: .5s;
+    opacity: 0;
+}
+
+#loader {
+    top: 0;
+    left: 0;
+    position: absolute;
+    background: rgba(255,255,255,1);
+    width: 100vw;
+    height: 100vh;
+    transition: .5s;
+}
+
+#loader > div > h1 {
+    color: #7051ff;
+}
+
+.loader {
+    width: 400px;
+    height: 10px;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 20px;
+    background: url("../assets/bg-loader.png") repeat;
+    animation: loaderSpin infinite .4s linear;
+}
+
+@keyframes loaderSpin {
+    from {
+        background-position-x: 40px;
+    }
+    to {
+        background-position-x: 0;
+    }
+}
+
+.center-element {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
 }
 
 @media screen and (max-width: 600px) {
-    #import, #export {
-        font-size: 18px;
-    }
 
-    #import > textarea, #export > textarea {
-        resize: none;
-        width: auto;
-        height: auto;
-        padding: 10px;
-        font-size: 16px;
+    .info-box > div > textarea, #newfile {
+        width: 70vw;
     }
 
     button > span {
@@ -236,5 +340,17 @@ button > svg {
 
     button {
         font-size: 12px;
+    }
+
+    button > svg {
+        margin-right: 0;
+    }
+
+    .changeBgs {
+        width: 70vw;
+    }
+
+    .loader {
+        width: 50vw;
     }
 }
