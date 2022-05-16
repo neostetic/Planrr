@@ -15,7 +15,7 @@
 #### Install
  - Installation via **nodejs** and **npm**
 ```
-git clone https://github.com/neostetic/template.git
+git clone https://github.com/neostetic/Planrr.git
 ```
 #### Legal actions
  - Please, before using or cloning this project, read our [License Terms](https://github.com/RobuxRoll/casino-dev/blob/main/LICENSE).
