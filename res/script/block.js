@@ -34,7 +34,10 @@ let colors = [
     '#faacc8'
 ]
 
-createBlockButton.onclick = () => {
+createBlockButton.onclick = () => { createBlock() }
+deleteBlockButton.onclick = () => { deleteBlock() }
+
+const createBlock = (position_x, position_y) => {
     const element = document.createElement("div");
     let elementId;
     do {
@@ -44,15 +47,26 @@ createBlockButton.onclick = () => {
     element.style.background = randomFromArray(colors);
     element.classList.add('block');
     element.id = elementId;
+    element.style.zIndex = zIndex;
+    if ((position_x && position_y) !== '') {
+        element.style.top = (position_y) + 'px';
+        element.style.left = (position_x) + 'px';
+    }
+    zIndex++;
     elementsIds.push(elementId);
     canvas.appendChild(element);
     dragElement(document.getElementById(elementId));
     popupShow('Block Created')
 }
 
-deleteBlockButton.onclick = () => {
-    document.getElementById(selected).remove();
-    selected = '';
+const deleteBlock = () => {
+    if (selected !== '') {
+        document.getElementById(selected).remove();
+        selected = '';
+        popupShow('Block deleted')
+    } else {
+        popupShow('Nothing to delete')
+    }
 }
 
 let yBlockIndex = 50;
@@ -86,13 +100,13 @@ rightBlockButton.onclick = () => {
     }
 }
 
-rangeWidth.onmousemove = () => {
+rangeWidth.onchange = () => {
     if (selected !== '') {
         document.getElementById(selected + '-textarea').style.width = rangeWidth.value + 'px';
     }
 }
 
-rangeHeight.onmousemove = () => {
+rangeHeight.onchange = () => {
     if (selected !== '') {
         document.getElementById(selected + '-textarea').style.height = rangeHeight.value + 'px';
     }

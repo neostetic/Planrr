@@ -13,6 +13,7 @@ let editConfirm = document.getElementById('editConfirm');
 let exportButton = document.getElementById('exportButton');
 let exportConfirm = document.getElementById('exportConfirm');
 let exportCopy = document.getElementById('exportCopy');
+let exportFile = document.getElementById('exportFile');
 let canvas = document.getElementById('canvas');
 let canvasParent = document.getElementById('canvas-parent');
 let infoBox = document.getElementById('infoBox');
@@ -68,7 +69,7 @@ exportButton.onclick = () => {
     exporte.style.display = 'block';
     settings.style.display = 'none';
     newfile.style.display = 'none';
-    document.getElementById('textExport').value = canvas.innerHTML;
+    document.getElementById('textExport').value = canvas.innerHTML.replace(/<br>/g, '\n');
 }
 
 exportConfirm.onclick = () => {
@@ -77,6 +78,11 @@ exportConfirm.onclick = () => {
 
 exportCopy.onclick = () => {
     copyExport('textExport');
+}
+
+exportFile.onclick = () => {
+    exportToFile(randomString(23), document.getElementById('canvas-parent').innerHTML.replace(/<br>/g, '\n'));
+    popupShow('Downloading')
 }
 
 newFileButton.onclick = () => {
@@ -141,6 +147,12 @@ document.addEventListener('input', function(e) {
     updateValue(target)
     document.getElementById('textExport').value = canvas.innerHTML;
 }, false);
+
+document.addEventListener("keydown", function (event) {
+    if (event.key === 'Delete') {
+        deleteBlock();
+    }
+});
 
 let zIndex = 30;
 

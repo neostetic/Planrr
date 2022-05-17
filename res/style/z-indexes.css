@@ -29,3 +29,7 @@
 #loader {
     z-index: 100;
 }
+
+#contextmenu {
+    z-index: 20;
+}

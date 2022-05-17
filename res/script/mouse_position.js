@@ -1,23 +1,20 @@
-let mouseX;
-let mouseY;
+document.body.onmousemove = getCursorPos;
+let posX = 0;
+let posY = 0;
 
-(function() {
-    document.onmousemove = handleMouseMove;
-    function handleMouseMove(event) {
-        let eventDoc, doc, body;
-        event = event || window.event;
-        if (event.pageX == null && event.clientX != null) {
-            eventDoc = (event.target && event.target.ownerDocument) || document;
-            doc = eventDoc.documentElement;
-            body = eventDoc.getElementById('canvas');
-            event.pageX = event.clientX +
-                (doc && doc.scrollLeft || body && body.scrollLeft || 0) -
-                (doc && doc.clientLeft || body && body.clientLeft || 0);
-            event.pageY = event.clientY +
-                (doc && doc.scrollTop  || body && body.scrollTop  || 0) -
-                (doc && doc.clientTop  || body && body.clientTop  || 0 );
-        }
-        mouseX = event.pageX;
-        mouseY = event.pageY;
-    }
-})();
+function getCursorPos(a)
+{
+    posX = a.clientX;
+    posY = a.clientY;
+}
+
+canvas.onmousemove = getCanvasPosition;
+let canvasPosX = 0;
+let canvasPosY = 0;
+
+function getCanvasPosition(a)
+{
+    canvasPosX = a.clientX - ((document.body.offsetWidth - canvas.offsetWidth) / 2);
+    canvasPosY = a.clientY - ((document.body.offsetHeight - canvas.offsetHeight - header.offsetHeight));
+    console.log(canvasPosX + " and " + canvasPosY)
+}

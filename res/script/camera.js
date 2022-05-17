@@ -43,7 +43,9 @@ rightCameraButton.onclick = () => {
     canvas.style.left = (50 + xCameraIndex) + '%';
 }
 
-centerCameraButton.onclick = () => {
+centerCameraButton.onclick = () => { centerCamera() }
+
+const centerCamera = () => {
     canvasScale = 1.0;
     xCameraIndex = 0;
     yCameraIndex = 0

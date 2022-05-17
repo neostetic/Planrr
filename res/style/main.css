@@ -20,12 +20,12 @@ body {
 
 ::-moz-selection {
     color: #000000;
-    background: #7051ff;
+    background: rgba(0,0,0,.3);
 }
 
 ::selection {
     color: #000000;
-    background: #7051ff;
+    background: rgba(0,0,0,.3);
 }
 
 button {
@@ -311,6 +311,46 @@ button > svg {
     animation: loaderSpin infinite .4s linear;
 }
 
+#contextmenu {
+    width: 240px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    display: none;
+    padding: 8px 14px;
+    font-size: 16px;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 0 30px rgba(0,0,0,.3);
+}
+
+.contextbutton {
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.contextbutton > svg {
+    height: 12px;
+}
+
+.contextbutton:hover {
+    margin-left: 5px;
+}
+
+.contextline {
+    width: 100%;
+    height: 2px;
+    background: rgba(0,0,0,.2);
+    margin: 2px 0;
+    border-radius: 10px;
+}
+
+.break {
+    margin-bottom: 6px;
+}
+
 @keyframes loaderSpin {
     from {
         background-position-x: 40px;
@@ -352,5 +392,10 @@ button > svg {
 
     .loader {
         width: 50vw;
+    }
+
+    .button-menu, .button-menu-second {
+        transform: scale(.8);
+        margin: 0;
     }
 }
