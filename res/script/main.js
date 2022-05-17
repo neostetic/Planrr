@@ -4,6 +4,15 @@ let importCancel = document.getElementById('importCancel');
 let newFileButton = document.getElementById('newFileButton');
 let newFileClose = document.getElementById('newFileClose');
 let newFileConfirm = document.getElementById('newFileConfirm');
+let canvasPreset1 = document.getElementById('canvasPreset1');
+let canvasPreset2 = document.getElementById('canvasPreset2');
+let canvasPreset3 = document.getElementById('canvasPreset3');
+let canvasPreset4 = document.getElementById('canvasPreset4');
+let canvasPreset5 = document.getElementById('canvasPreset5');
+let canvasPreset6 = document.getElementById('canvasPreset6');
+let canvasPreset7 = document.getElementById('canvasPreset7');
+let canvasPreset8 = document.getElementById('canvasPreset8');
+let canvasPresetSwitch = document.getElementById('canvasPresetSwitch');
 let canvasWidth = document.getElementById('canvasWidth');
 let canvasWidthInput = document.getElementById('canvasWidthInput');
 let canvasHeight = document.getElementById('canvasHeight');
@@ -121,6 +130,20 @@ newFileConfirm.onclick = async () => {
     await sleep(500);
     document.getElementById('loader').style.display = 'none';
     popupShow('New Canvas Created')
+}
+
+canvasPreset1.onclick = () => { canvasWidthInput.value = '1920px'; canvasHeightInput.value = '1440px'; }
+canvasPreset2.onclick = () => { canvasWidthInput.value = '1600px'; canvasHeightInput.value = '1200px'; }
+canvasPreset3.onclick = () => { canvasWidthInput.value = '1280px'; canvasHeightInput.value = '960px'; }
+canvasPreset4.onclick = () => { canvasWidthInput.value = '1000px'; canvasHeightInput.value = '1000px'; }
+canvasPreset5.onclick = () => { canvasWidthInput.value = '500px'; canvasHeightInput.value = '500px'; }
+canvasPreset6.onclick = () => { canvasWidthInput.value = '250px'; canvasHeightInput.value = '250px'; }
+canvasPreset7.onclick = () => { canvasWidthInput.value = '90%'; canvasHeightInput.value = '90%'; }
+canvasPreset8.onclick = () => { canvasWidthInput.value = '60%'; canvasHeightInput.value = '60%'; }
+canvasPresetSwitch.onclick = () => {
+    let help = canvasWidthInput.value;
+    canvasWidthInput.value = canvasHeightInput.value;
+    canvasHeightInput.value = help;
 }
 
 const copyExport = (elementId) => {

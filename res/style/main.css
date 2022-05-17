@@ -39,6 +39,7 @@ button {
     fill: white;
     cursor: pointer;
     transition: .2s;
+    margin-top: 5px;
 }
 
 button:hover {
@@ -78,7 +79,7 @@ button > svg {
 .content {
     position: relative;
     width: 100%;
-    height: calc(100vh - 86px);
+    height: calc(100vh - 92px);
     background: rgba(0,0,0,.05);
 }
 
@@ -97,8 +98,8 @@ button > svg {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90%;
-    height: 90%;
+    width: 500px;
+    height: 500px;
     position: absolute;
     background: white;
     border: 1px solid rgba(0,0,0,.3);
@@ -258,6 +259,30 @@ button > svg {
 
 #newfile {
     width: 400px;
+}
+
+.canvasPreset {
+    margin-top: 4px;
+    margin-right: 4px;
+    width: 30%;
+    text-align: center;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,.5);
+    cursor: pointer;
+    transition: .2s;
+    font-weight: 400;
+    fill: black;
+    background: white;
+    color: black;
+}
+
+.canvasPreset:hover {
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+}
+
+.canvasPreset:focus {
+    outline: 1px solid black;
 }
 
 .move-svg {
