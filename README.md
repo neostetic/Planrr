@@ -11,6 +11,7 @@
  - **Version:** 0.1.0-beta
  - **Website:** https://neostetic.github.io/Planrr/
 #### Download Content
+ - **License:** [planrr_example.htm](https://neostetic.github.io/Planrr/planrr_example.htm) ([download](https://raw.githubusercontent.com/neostetic/Planrr/main/planrr_example.htm))
  - **License:** [LICENSE](https://github.com/neostetic/template/blob/main/LICENSE) ([download](https://github.com/neostetic/template/raw/main/LICENSE))
 #### Install
  - Installation via **nodejs** and **npm**
