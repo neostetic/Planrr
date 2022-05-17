@@ -132,18 +132,24 @@ newFileConfirm.onclick = async () => {
     popupShow('New Canvas Created')
 }
 
-canvasPreset1.onclick = () => { canvasWidthInput.value = '1920px'; canvasHeightInput.value = '1440px'; }
-canvasPreset2.onclick = () => { canvasWidthInput.value = '1600px'; canvasHeightInput.value = '1200px'; }
-canvasPreset3.onclick = () => { canvasWidthInput.value = '1280px'; canvasHeightInput.value = '960px'; }
-canvasPreset4.onclick = () => { canvasWidthInput.value = '1000px'; canvasHeightInput.value = '1000px'; }
-canvasPreset5.onclick = () => { canvasWidthInput.value = '500px'; canvasHeightInput.value = '500px'; }
-canvasPreset6.onclick = () => { canvasWidthInput.value = '250px'; canvasHeightInput.value = '250px'; }
-canvasPreset7.onclick = () => { canvasWidthInput.value = '90%'; canvasHeightInput.value = '90%'; }
-canvasPreset8.onclick = () => { canvasWidthInput.value = '60%'; canvasHeightInput.value = '60%'; }
+canvasPreset1.onclick = () => { canvasWidthInput.value = '1920px'; canvasHeightInput.value = '1440px'; changeValue(); }
+canvasPreset2.onclick = () => { canvasWidthInput.value = '1600px'; canvasHeightInput.value = '1200px'; changeValue(); }
+canvasPreset3.onclick = () => { canvasWidthInput.value = '1280px'; canvasHeightInput.value = '960px'; changeValue(); }
+canvasPreset4.onclick = () => { canvasWidthInput.value = '1000px'; canvasHeightInput.value = '1000px'; changeValue(); }
+canvasPreset5.onclick = () => { canvasWidthInput.value = '500px'; canvasHeightInput.value = '500px'; changeValue(); }
+canvasPreset6.onclick = () => { canvasWidthInput.value = '250px'; canvasHeightInput.value = '250px'; changeValue(); }
+canvasPreset7.onclick = () => { canvasWidthInput.value = '90%'; canvasHeightInput.value = '90%'; changeValue(); }
+canvasPreset8.onclick = () => { canvasWidthInput.value = '60%'; canvasHeightInput.value = '60%'; changeValue(); }
 canvasPresetSwitch.onclick = () => {
     let help = canvasWidthInput.value;
     canvasWidthInput.value = canvasHeightInput.value;
     canvasHeightInput.value = help;
+    changeValue();
+}
+
+const changeValue = () => {
+    canvasWidth.value = canvasWidthInput.value.replace('px', '');
+    canvasHeight.value = canvasHeightInput.value.replace('px', '');
 }
 
 const copyExport = (elementId) => {

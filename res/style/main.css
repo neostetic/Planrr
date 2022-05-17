@@ -261,7 +261,7 @@ button > svg {
     width: 400px;
 }
 
-.canvasPreset {
+.button-white {
     margin-top: 4px;
     margin-right: 4px;
     width: 30%;
@@ -277,11 +277,11 @@ button > svg {
     color: black;
 }
 
-.canvasPreset:hover {
+.button-white:hover {
     box-shadow: 0 0 10px rgba(0,0,0,.2);
 }
 
-.canvasPreset:focus {
+.button-white:focus {
     outline: 1px solid black;
 }
 
