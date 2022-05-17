@@ -4,7 +4,7 @@
 ![image](https://raw.githubusercontent.com/neostetic/neostetic/main/assets/tag_javascript.png)
 ![image](https://raw.githubusercontent.com/neostetic/neostetic/main/assets/tag_css.png)
 
-![image](https://user-images.githubusercontent.com/83291717/168490451-ec30b886-97c2-460c-8c47-4358fa4e44b3.png)
+![image](https://user-images.githubusercontent.com/83291717/168882744-0e00ca80-9506-4d90-9b89-914bc661f77b.png)
 
 #### Information
  - **Name:** Planrr
