@@ -4,6 +4,7 @@ let contextmenu = document.getElementById('contextmenu');
 let contextNewButton = document.getElementById('contextNewButton')
 let contextEditButton = document.getElementById('contextEditButton')
 let contextCopyButton = document.getElementById('contextCopyButton')
+let contextCopyTextButton = document.getElementById('contextCopyTextButton')
 let contextPasteButton = document.getElementById('contextPasteButton')
 let contextDeleteButton = document.getElementById('contextDeleteButton')
 
@@ -53,6 +54,7 @@ contextNewButton.onclick = () => {
 }
 
 let copyStyle = {
+    style: '',
     background: '',
     width: '',
     height: '',
@@ -61,6 +63,7 @@ let copyStyle = {
 
 contextCopyButton.onclick = () => {
     if (selected !== '') {
+        copyStyle.style = 'all';
         copyStyle.background = document.getElementById(selected).style.background;
         copyStyle.width = document.getElementById(selected + '-textarea').style.width;
         copyStyle.height = document.getElementById(selected + '-textarea').style.height;
@@ -72,17 +75,34 @@ contextCopyButton.onclick = () => {
     closeContextmenu();
 }
 
+contextCopyTextButton.onclick = () => {
+    if (selected !== '') {
+        copyStyle.style = 'content';
+        copyStyle.innerText = document.getElementById(selected + '-textarea').innerHTML;
+        popupShow('Content copied');
+    } else {
+        popupShow('Nothing to copy');
+    }
+    closeContextmenu();
+}
+
 contextPasteButton.onclick = () => {
-    if (copyStyle.background === '') {
+    if (copyStyle.style === '') {
         popupShow('Nothing to paste')
     } else {
         if (selected !== '') {
-            document.getElementById(selected).style.background = copyStyle.background;
-            document.getElementById(selected + '-textarea').style.width = copyStyle.width;
-            document.getElementById(selected + '-textarea').style.height = copyStyle.height;
-            document.getElementById(selected + '-textarea').innerHTML = copyStyle.innerText;
-            document.getElementById(selected + '-textarea').value = copyStyle.innerText;
-            popupShow('Block pasted');
+            if (copyStyle.style === 'all') {
+                document.getElementById(selected).style.background = copyStyle.background;
+                document.getElementById(selected + '-textarea').style.width = copyStyle.width;
+                document.getElementById(selected + '-textarea').style.height = copyStyle.height;
+                document.getElementById(selected + '-textarea').innerHTML = copyStyle.innerText;
+                document.getElementById(selected + '-textarea').value = copyStyle.innerText;
+            } else if (copyStyle.style === 'content') {
+                document.getElementById(selected + '-textarea').innerHTML = copyStyle.innerText;
+                document.getElementById(selected + '-textarea').value = copyStyle.innerText;
+            }
+            copyStyle.style = '';
+            popupShow('Pasted');
         } else {
             popupShow('Nowhere to paste');
         }

@@ -16,5 +16,4 @@ function getCanvasPosition(a)
 {
     canvasPosX = a.clientX - ((document.body.offsetWidth - canvas.offsetWidth) / 2);
     canvasPosY = a.clientY - ((document.body.offsetHeight - canvas.offsetHeight - header.offsetHeight));
-    console.log(canvasPosX + " and " + canvasPosY)
 }

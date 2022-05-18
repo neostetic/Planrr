@@ -136,6 +136,7 @@ button > svg {
     top: 7px;
     outline: none;
     border: none;
+    background: transparent;
     padding: 3px 10px 10px 10px;
     font-size: 18px;
     background: transparent;
