@@ -43,7 +43,7 @@ const createBlock = (position_x, position_y) => {
     do {
         elementId = 'block_' + randomString(64);
     } while (includesArray(elementsIds, elementId));
-    element.innerHTML = '<div class="dragger" id="' + elementId + '-dragger"></div><textarea class="textarea" style="width: 200px; height: 120px;" id="' + elementId + '-textarea" placeholder="Your text"></textarea>'
+    element.innerHTML = '<div class="dragger" id="' + elementId + '-dragger"></div><div contenteditable="true" class="textarea" style="width: 200px; height: 120px;" id="' + elementId + '-textarea" placeholder="Your text"></div>'
     element.style.background = randomFromArray(colors);
     element.classList.add('block');
     element.id = elementId;

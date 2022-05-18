@@ -140,6 +140,8 @@ button > svg {
     font-size: 18px;
     background: transparent;
     overflow: hidden;
+    resize: both;
+    break-after: auto;
 }
 
 .textarea::before {

@@ -64,7 +64,7 @@ contextCopyButton.onclick = () => {
         copyStyle.background = document.getElementById(selected).style.background;
         copyStyle.width = document.getElementById(selected + '-textarea').style.width;
         copyStyle.height = document.getElementById(selected + '-textarea').style.height;
-        copyStyle.innerText = document.getElementById(selected + '-textarea').value;
+        copyStyle.innerText = document.getElementById(selected + '-textarea').innerHTML;
         popupShow('Block copied');
     } else {
         popupShow('Nothing to copy');
@@ -80,7 +80,7 @@ contextPasteButton.onclick = () => {
             document.getElementById(selected).style.background = copyStyle.background;
             document.getElementById(selected + '-textarea').style.width = copyStyle.width;
             document.getElementById(selected + '-textarea').style.height = copyStyle.height;
-            document.getElementById(selected + '-textarea').innerText = copyStyle.innerText;
+            document.getElementById(selected + '-textarea').innerHTML = copyStyle.innerText;
             document.getElementById(selected + '-textarea').value = copyStyle.innerText;
             popupShow('Block pasted');
         } else {
