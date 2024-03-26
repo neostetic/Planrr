@@ -31,6 +31,8 @@ let newfile = document.getElementById('newfile');
 let importe = document.getElementById('import');
 let exporte = document.getElementById('export');
 
+console.log(btoa("xd"));
+
 window.addEventListener('load', async (event) => {
     document.getElementById('loader').style.opacity = '0';
     await sleep(500);
@@ -47,7 +49,31 @@ importButton.onclick = () => {
 }
 
 importConfirm.onclick = () => {
-    canvas.innerHTML = document.getElementById('textImport').value;
+    let importTransform = atob(document.getElementById('textImport').value)
+    let regex = /<!--(.*?)-->/g;
+    let match = regex.exec(importTransform);
+    let importConfig = match ? match[1].trim() : '';
+    let canvasInnerHTML = importTransform.replace(regex, '').replace(/^\s+/, '');
+
+    console.log(importConfig)
+
+    let configs = importConfig.split(';');
+    let result = {};
+    for (let i = 0; i < configs.length; i++) {
+        let config = configs[i].trim();
+        let parts = config.split(':');
+        let confName = parts[0].trim();
+        let values = parts[1].trim().split(',');
+        result[confName] = values;
+    }
+
+    for (let configName in result) {
+        if (configName === "canvas-size") {
+            canvas.style.width = result[configName][0] + "px"
+            canvas.style.height = result[configName][1] + "px"
+        }
+    }
+    canvas.innerHTML = canvasInnerHTML;
     infoBox.style.display = 'none';
     popupShow('Code Imported')
 }
@@ -78,7 +104,11 @@ exportButton.onclick = () => {
     exporte.style.display = 'block';
     settings.style.display = 'none';
     newfile.style.display = 'none';
-    document.getElementById('textExport').value = canvas.innerHTML.replace(/<br>/g, '\n');
+    document.getElementById('textExport').value = btoa(""
+        + "<!--"
+        + "canvas-size:"+ canvas.offsetWidth + "," + canvas.offsetHeight
+        + "-->"
+        + canvas.innerHTML.replace(/<br>/g, '\n'));
 }
 
 exportConfirm.onclick = () => {

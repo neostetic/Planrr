@@ -8,7 +8,7 @@ let centerCameraButton = document.getElementById('centerCameraButton');
 
 let yCameraIndex = 0;
 let xCameraIndex = 0;
-let canvasScale = 1.0;
+var canvasScale = 1.0;
 
 zoomInButton.onclick = () => {
     canvasScale = canvasScale + 0.1;
@@ -25,12 +25,12 @@ zoomOutButton.onclick = () => {
 
 upCameraButton.onclick = () => {
     yCameraIndex += 10;
-    canvas.style.top = (50 + yCameraIndex) + '%';
+    canvas.style.top = (50 + yCameraIndex) / canvasScale + '%';
 }
 
 downCameraButton.onclick = () => {
     yCameraIndex -= 10;
-    canvas.style.top = (50 + yCameraIndex) + '%';
+    canvas.style.top = (50 + yCameraIndex) / canvasScale + '%';
 }
 
 leftCameraButton.onclick = () => {
